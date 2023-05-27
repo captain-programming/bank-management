@@ -4,6 +4,7 @@ import Login from './Login';
 import AccountPage from './AccountPage';
 import TransactionPage from './TransactionPage';
 import PrivateRooute from '../component/PrivateRooute';
+import UserDetailsPage from './UserDetailsPage';
 
 const AllRoutes = () => {
   return (
@@ -11,6 +12,7 @@ const AllRoutes = () => {
     <Routes>
       <Route path='/' element={<Login />}/>
       <Route path='/account' element={<PrivateRooute><AccountPage /> </PrivateRooute>}/>
+      <Route path='/account/user/:id' element={<PrivateRooute><UserDetailsPage /> </PrivateRooute>}/>
       <Route path='/transaction' element={<PrivateRooute><TransactionPage /></PrivateRooute>}/>
     </Routes>
     </>

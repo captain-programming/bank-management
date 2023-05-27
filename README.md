@@ -6,6 +6,10 @@
   Password: 2l2cDLRTN
   Account Type: customer
 
+  Email: dcoppin0@sbwire.com
+  Password: Pv7rODNcHr
+  Account Type: customer
+
   Email: admin@gmail.com
   Password: admin@123
   Account Type: Admin

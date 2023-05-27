@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PopupModel from '../component/PopupModal'
 import { useDispatch, useSelector } from 'react-redux';
 import { AllTransaction } from '../store/action';
+import TableComponent from '../component/TableComponent';
 
 const TransactionPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,31 +33,9 @@ const TransactionPage = () => {
       </div>
     </div>
     <PopupModel isOpen={isOpen} onClose={closeModal} popupData={popupData} amount={userDetails?.amount}/>
-    <div className='display-data'>
-      <h1>Transactions</h1>
-      <table className='table'>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>User</th>
-            <th>Amount</th>
-            <th>Timestamp</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transaction.map((transaction) => (
-            <tr key={transaction._id}>
-              <td>{transaction._id}</td>
-              <td>{transaction.transactionType}</td>
-              <td>{transaction.amount}</td>
-              <td>{new Date(transaction.timestamp).toLocaleString()}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <TableComponent heading={'Transactions'} headerArr={['Transaction ID', 'Transaction Type', 'Amount', 'Timestamp']} list={transaction}/>
     </>
   )
 }
 
-export default TransactionPage
+export default TransactionPage;

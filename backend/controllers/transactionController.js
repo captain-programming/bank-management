@@ -51,3 +51,21 @@ exports.allTransaction = async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 };
+
+exports.allTransactionPerUser = async (req, res) => {
+  const {accesstoken, userid, adminid} = req.headers;
+
+  try {
+    const user = await UserModel.findById(adminid);
+
+    if(accesstoken!==user.accessToken){
+      return res.status(400).json({ message: 'Not access'});
+    }
+
+    const transactionList = await AccountModel.find({ user: userid });
+    res.json(transactionList);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
