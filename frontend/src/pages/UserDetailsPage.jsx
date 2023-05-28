@@ -20,4 +20,4 @@ const UserDetailsPage = () => {
   )
 }
 
-export default UserDetailsPage
+export default UserDetailsPage;

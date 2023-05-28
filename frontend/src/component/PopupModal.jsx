@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddAmount } from '../store/action';
+import { toast } from 'react-toastify';
 
 const PopupModel = ({ isOpen, onClose, popupData, amount}) => {
-  const [inputAmount, setInputAmount] = useState(0);
+  const [inputAmount, setInputAmount] = useState("");
   const dispatch = useDispatch();
   const {userDetails} = useSelector((store) => store);
 
   const operationFun = () => {  
-    dispatch(AddAmount(inputAmount, popupData, userDetails?.accessToken, userDetails?.userId));
+    dispatch(AddAmount(inputAmount, popupData, userDetails?.accessToken, userDetails?.userId, toast));
     onClose();
     setInputAmount("");
   }

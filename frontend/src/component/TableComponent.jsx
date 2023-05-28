@@ -23,7 +23,8 @@ const TableComponent = ({heading, headerArr, list, show}) => {
           {show==="user" ? 
             list?.map((user) => (
               <tr key={user._id} style={{cursor: "pointer"}} onClick={()=>handleNextPage(user._id)}>
-                <td>{user._id}</td>
+                <td className='viewDetails'>{user._id}</td>
+                <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.username}</td>
                 <td>{user.amount}</td>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PopupModel from '../component/PopupModal'
 import { useDispatch, useSelector } from 'react-redux';
-import { AllTransaction } from '../store/action';
+import { AllTransaction, logout } from '../store/action';
 import TableComponent from '../component/TableComponent';
 
 const TransactionPage = () => {
@@ -15,6 +15,10 @@ const TransactionPage = () => {
     setPopupData(text);
   };
 
+  const logoutFun=()=>{
+    dispatch(logout());
+  }
+
   const closeModal = () => {
     setIsOpen(false);
     setPopupData("")
@@ -27,9 +31,15 @@ const TransactionPage = () => {
   return (
     <>
     <div className='transaction-box'>
+      <div className='user-details'>
+        <p><span style={{fontWeight: "1000"}}>Customer Name:</span> {userDetails?.name}</p>
+        <p><span style={{fontWeight: "1000"}}>Customer Id: </span>{userDetails?.userId}</p>
+        <p><span style={{fontWeight: "1000"}}>Total Amount: </span> {userDetails?.amount}</p>
+      </div>
       <div className='transaction-btn'>
         <button onClick={() => openModal("deposit")}>Deposit</button>
         <button onClick={() => openModal("withdraw")}>Withdraw</button>
+        <button style={{alignSelf: "flex-start", padding: '10px', color: 'white', backgroundColor: "red", border: "none", borderRadius: "7px", fontWeight: "1000", cursor: "pointer"}} onClick={logoutFun}>Logout</button>
       </div>
     </div>
     <PopupModel isOpen={isOpen} onClose={closeModal} popupData={popupData} amount={userDetails?.amount}/>

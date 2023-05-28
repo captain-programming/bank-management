@@ -14,21 +14,21 @@
 
 .login-box .mainBox{
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  padding: 50px 40px;
-  width: 400px;
+  padding: 50px 50px 20px 50px;
+  width: 450px;
   border-radius: 10px;
 }
 
 .mainBox form{
   display: flex;
+  width: 350px;
+  margin: auto;
   flex-direction: column;
-  gap: 20px;
-  margin: 50px;
-  margin-bottom: 0px;     
+  gap: 20px;   
 }
 
 .mainBox form input{
-  padding: 8px;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -42,22 +42,42 @@
   padding: 5px 20px;
   cursor: pointer;
   border-radius:5px;
-  margin-top: 20px;
+  margin: 30px 0px 15px 0px;
 }
 
-.login-box form .admin-login-btn{
-  align-self: end;
+.login-box .login-option{
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-box .login-option1{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-box .admin-login-btn{
   color: blue;
+  font-weight: 500;
   cursor: pointer;
 }
 
 .transaction-box{
   padding: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.transaction-box .user-details{
+  font-size: 18px;
+  font-family: DM sans-serif;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .transaction-box .transaction-btn{
   display: flex;
-  justify-content: end;
+  align-self: flex-start;
   gap: 20px;
 }
 
@@ -175,4 +195,11 @@
   border-bottom: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+}
+
+.display-data .table .viewDetails {
+  color: blue;
+}
+.display-data .table .viewDetails:hover{
+  text-decoration: underline;
 }
